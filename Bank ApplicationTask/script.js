@@ -1,16 +1,17 @@
-let myAccountBalance = parseInt(document.getElementById("myAccountBalance").innerText);
+// var myAccountBalance = parseInt(document.getElementById("myAccountBalance").innerText);
 
 function sendMoney() {
+    var myAccountBalance = parseInt(document.getElementById("myAccountBalance").innerText);
     var enterName = document.getElementById("enterName").value;
     var enterAmount = parseInt(document.getElementById("enterAmount").value);
-
-    if (enterAmount > 8000) {
+    // console.log(myAccountBalance)
+    if (enterAmount > myAccountBalance) {
         alert("Insufficient Balance.")
         } else {
             var findUserBankAccount = enterName + "BankBalance";
             var finalAmount = parseInt(document.getElementById(findUserBankAccount).innerText) + enterAmount;
-            var myAccountBalance = parseInt(document.getElementById("myAccountBalance").innerText) - enterAmount
-            document.getElementById("myAccountBalance").innerText = myAccountBalance
+            var myupdatedAccountBalance = myAccountBalance - enterAmount
+            document.getElementById("myAccountBalance").innerText = myupdatedAccountBalance
             document.getElementById(findUserBankAccount).innerText = finalAmount;
             alert(`Successful Transaction !!  $${enterAmount} is sent to ${enterName}@email.com.`)
 
